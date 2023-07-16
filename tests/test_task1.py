@@ -15,9 +15,20 @@ def test_post_signup_invalid():
 
 
 def test_post_signup_valid():
-    data = {"email": "test@test.com", "full_name": "Aibek Azamatov", "password": "123"}
+    data = {
+        "email": "test@test.com",
+        "full_name": "Aibek Azamatov",
+        "password": "123"
+    }
+
+    photo_file = open("/home/llunareine/nFactorial/new-hw-backend-6/tests/cat.jpeg", "rb")
+    files = {"photo": photo_file}
+
     response = requests.post(
-        "http://localhost:8000/signup", data=data, allow_redirects=False
+        "http://localhost:8000/signup",
+        data=data,
+        files=files,
+        allow_redirects=False
     )
     assert response.status_code == 303
-    assert "/signup" in response.headers.get("location")
+    assert "/login" in response.headers.get("location")
