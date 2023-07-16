@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Регистрация</title>
+</head>
+<body>
+    <h1>Регистрация</h1>
+    <form method="POST" action="/signup" enctype="multipart/form-data">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="full_name">Имя Фамилия:</label>
+        <input type="text" id="full_name" name="full_name" required><br><br>
+
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="photo">Фотография:</label>
+        <input type="file" id="photo" name="photo"><br><br>
+
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+</body>
+</html>

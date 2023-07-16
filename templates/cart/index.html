@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <h2>Список цветов:</h2>
+    <ul>
+
+        {% for flower in flowers %}
+            <li>{{ flower.name }} - {{ flower.id }} id, стоимость: {{ flower.cost }}</li>
+
+        {% endfor %}
+         Total: {{total_cost}}
+        {% if token %}
+        <form action="/purchased" method="POST">
+                <button type="submit">Purchase</button>
+        </form>
+        {% else %}
+              <a href="/login">Login to purchase</a><br>
+
+        {% endif %}
+
+    </ul>
+</body>
+</html>

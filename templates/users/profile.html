@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Профиль</title>
+</head>
+<body>
+    <h1>Профиль</h1>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Имя Фамилия:</strong> {{ user.full_name }}</p>
+    {% if user.photo %}
+        <img src="{{ url_for('static', path=user.photo) }}" />
+    {% else %}
+        <p>No photo available</p>
+    {% endif %}
+    <a href="/purchased">My purchases </a>
+
+
+</body>
+</html>

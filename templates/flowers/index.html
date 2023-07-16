@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добавить цветы</title>
+</head>
+<body>
+    <h1>Добавить цветы</h1>
+    <form action="/flowers" method="post">
+        <label >Название цветов:</label>
+        <input type="text" name="name" id="name" required><br>
+        <label >Кол-во цветов:</label>
+        <input type="number" name="count" id="count" required><br>
+        <label>Стоимость:</label>
+        <input type="number" name="cost" id="cost" required><br>
+        <button type="submit">Добавить</button>
+    </form>
+    <p>Моя корзина: <a href="/cart/items">click</a></p>
+    <h2>Список цветов:</h2>
+    <ul>
+        {% for flower in flowers %}
+        <form action="/cart/items" method="post">
+            <input type="hidden" name="flower_id" value="{{ flower.id }}">
+            <li>{{ flower.name }} - {{ flower.count }} шт, стоимость: {{ flower.cost }}</li>
+            <button type="submit">Add</button>
+        </form>
+        {% endfor %}
+    </ul>
+</body>
+</html>
