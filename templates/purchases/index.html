@@ -6,12 +6,17 @@
 </head>
 <body>
   <h3>My flowers: </h3>
-  {% for flower in flowers %}
-            <li>{{ flower.name }} - {{ flower.id }} id, стоимость: {{ flower.cost }}</li>
 
-  {% endfor %}
-  {% if not flowers %}
-    <a href="/cart/items">purchase your flowers</a>
+  {% if not flowers[0] %}
+    <a href="/cart/items">purchase your flowers</a></br>
+  {% else %}
+      {% for flower in flowers %}
+            <li>{{ flower.name }} - {{ flower.id }} id, стоимость: {{ flower.cost }}</li>
+        {% endfor %}
+      <a href="/flowers">add more flowers</a><br>
+
   {% endif %}
+
+
 </body>
 </html>

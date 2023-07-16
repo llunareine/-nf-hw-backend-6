@@ -9,12 +9,12 @@
         <label >Название цветов:</label>
         <input type="text" name="name" id="name" required><br>
         <label >Кол-во цветов:</label>
-        <input type="number" name="count" id="count" required><br>
+        <input type="number" name="count" min = "1" id="count" required><br>
         <label>Стоимость:</label>
-        <input type="number" name="cost" id="cost" required><br>
+        <input type="number" name="cost" min = "1" id="cost" required><br>
         <button type="submit">Добавить</button>
     </form>
-    <p>Моя корзина: <a href="/cart/items">click</a></p>
+    <p>my  cart: <a href="/cart/items">click</a></p>
     <h2>Список цветов:</h2>
     <ul>
         {% for flower in flowers %}

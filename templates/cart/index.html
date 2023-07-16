@@ -7,17 +7,21 @@
 <body>
   <h2>Список цветов:</h2>
     <ul>
+        {% if flowers[0] %}
+            {% for flower in flowers %}
+                <li>{{ flower.name }} - {{ flower.id }} id, стоимость: {{ flower.cost }}</li>
 
-        {% for flower in flowers %}
-            <li>{{ flower.name }} - {{ flower.id }} id, стоимость: {{ flower.cost }}</li>
+            {% endfor %}
+        {% endif %}
 
-        {% endfor %}
          Total: {{total_cost}}
-        {% if token %}
+        {% if token and flowers[0] %}
         <form action="/purchased" method="POST">
                 <button type="submit">Purchase</button>
         </form>
-        {% else %}
+        {% elif not flowers[0] %}
+          <a href="/flowers">Add some flowers to your cart!</a><br>
+        {%  else %}
               <a href="/login">Login to purchase</a><br>
 
         {% endif %}

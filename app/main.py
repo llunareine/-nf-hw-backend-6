@@ -58,7 +58,9 @@ def get_cart_items(request: Request):
     flower_ids = cookie_list.split(",") if cookie_list else []
 
     for flower in flower_ids:
-        flowers.append(flowers_repository.get_one(int(flower)))
+        get_flower = flowers_repository.get_one(int(flower))
+        if get_flower:
+            flowers.append(get_flower)
     print(flowers)
     total_cost = sum(flower.cost for flower in flowers) if flowers else 0
     return templates.TemplateResponse("cart/index.html", {"request": request, "flowers": flowers, "total_cost": total_cost, "token": token})
